@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Part A, Build SCAII core and move glues
 cd SCAII/
 #git checkout dev
