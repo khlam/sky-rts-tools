@@ -4,13 +4,13 @@
 # Part A, Build SCAII core and move glues
 cd SCAII/
 #git checkout dev
-cargo build --release
+cargo build
 rm -rf ~/.scaii/
 
 mkdir ~/.scaii
 mkdir ~/.scaii/bin
 
-cp target/release/libscaii_core.so ~/.scaii/bin/
+cp target/debug/libscaii_core.so ~/.scaii/bin/
 cp -r glue ~/.scaii/
 
 # Part B.5 make dirs
@@ -24,12 +24,12 @@ mkdir ~/.scaii/glue/python/scaii/env/sky_rts
 cd ../Sky-RTS/
 #git checkout dev
 cd backend/
-cargo build --release
-cp target/release/libbackend.so ~/.scaii/backends/bin/libsky-rts.so
+cargo build
+cp target/debug/libbackend.so ~/.scaii/backends/bin/libsky-rts.so
 cd ..
 cp -r game_wrapper/python/* ~/.scaii/glue/python/scaii/env/sky_rts/
 
-cp backend/lua/tower_example.lua ~/.scaii/backends/sky-rts/maps
+cp backend/lua/* ~/.scaii/backends/sky-rts/maps
 
-export PYTHONPATH=$PYTHONPATH:/home/lamki/.scaii/bin:/home/lamki/.scaii/glue/python/ 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/lamki/.scaii/bin/
+export PYTHONPATH=$PYTHONPATH:/home/khlam/.scaii/bin:/home/khlam/.scaii/glue/python/ 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/khlam/.scaii/bin/
